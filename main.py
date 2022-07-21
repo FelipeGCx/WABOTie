@@ -1,9 +1,9 @@
 from flask import Flask, request
 from munch import DefaultMunch
-# from bot import ChatBot
+from bot import ChatBot
 import os
 
-# chatbot = ChatBot()
+chatbot = ChatBot()
 app = Flask(__name__)
 
 #* THIS IS THE WEBHOOK
@@ -27,7 +27,7 @@ def webhook():
             message = changes.value.messages[0].text.body
             sender_phone = changes.value.contacts[0].wa_id
             # Send the message to the chatbot
-            # chatbot.proccess_message(sender_phone,message)
+            chatbot.proccess_message(sender_phone,message)
             return 'OK', 200
         else:
             return 'Error', 400
