@@ -27,12 +27,16 @@ class ChatBot:
         data = {
             "messaging_product": "whatsapp",
             "to": sender_phone,
-            "type": "text",
-            "text":{
-                "body": message
-                }
+            "type": "template",
+            "template": {
+            "name": "hello_world",
+            "language": {
+            "code": "en_US"
+            },
+            }
             }
         data = json.dumps(data)
+        print(data)
         url = f'https://graph.facebook.com/{setup.version}/{setup.phoneNumberClient}/messages'
         headers = {'Content-Type': 'application/json', 'Authorization': f'Bearer {setup.token}'}
         response = requests.post(url=url, data=data, headers=headers,)
