@@ -8,13 +8,13 @@ app = Flask(__name__)
 
 #* THIS IS THE WEBHOOK
 
-@app.route('/entrypoint', methods=['GET', 'POST'])
+@app.route('/webhook', methods=['GET', 'POST'])
 def webhook():
     if request.method == 'GET':
         hmode = request.args.get('hub.mode')
         htoken = request.args.get('hub.verify_token')
         hchallenge = request.args.get('hub.challenge')
-        if (hmode == 'subscribe') and (htoken == 'whatsapp-api-jtux'):
+        if (hmode == 'subscribe') and (htoken == '*0*wabotie*0*'):
             return hchallenge
         else:
             return 'Error', 400
