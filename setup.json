@@ -1,0 +1,5 @@
+{
+    "version": "v13.0",
+    "phoneNumberClient": "your number inside the string",
+    "token":"your token access"
+}

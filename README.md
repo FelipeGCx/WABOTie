@@ -1,23 +1,38 @@
----
-title: Flask
-description: A popular minimal server framework for Python.
-tags:
-  - python
-  - flask
----
+# WABOTie
 
-# Python Flask Example
+A Simple ChatBot for WhatsApp implementing WhatsApp Business API, and creating Webhook with flask
 
-This is a [Flask](https://flask.palletsprojects.com/en/1.1.x/) app that serves a simple JSON response.
+## 🚀 Get Starting
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new?template=https%3A%2F%2Fgithub.com%2Frailwayapp%2Fexamples%2Ftree%2Fmaster%2Fexamples%2Fflask)
+### Install virtual enviroment if you don't have one 
+``` bash
+pip install virtualenv
+```
+### Clone the repository
+``` bash
+git clone https://github.com/FelipeGCx/WABOTie.git
+```
 
-## ✨ Features
+### Open the repository in your Developer enviroment
 
-- Python
-- Flask
+### Create your virtual enviroment
+``` bash
+virtualenv venv -p python3
+```
+  
+### Init your virtual enviroment
+``` bash
+source venv/bin/activate
+``` 
+### Install the requirement.txt
+``` bash
+pip install -r requirements.txt 
+```
+### Open the setup.json file and complete the fields
+### 🌟 Run the app
+``` bash
+python3 main.py
+```
 
-## 💁‍♀️ How to use
-
-- Install Python requirements `pip install -r requirements.txt`
-- Start the server for development `python3 main.py`
+** Note **
+- open the bot.py file to make custom logic and commands
