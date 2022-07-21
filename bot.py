@@ -16,9 +16,9 @@ class ChatBot:
         
     
     def proccess_message(self,sender_phone,message):
-        if message.lower() == 'hola':
+        # if message.lower() == 'hola':
             # print('work')
-            self.send_message_text(sender_phone,'Hello')
+        self.send_message_text(sender_phone,'Hello')
             
         # if message.startswith('!'):
             
