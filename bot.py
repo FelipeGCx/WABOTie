@@ -8,7 +8,7 @@ load_dotenv()
 class ChatBot:
     
     def proccess_message(self,sender_phone,message):
-        response = get_response(message)
+        response = get_response(message.lower())
         self.send_message_text(sender_phone,response)
             
     
@@ -26,3 +26,4 @@ class ChatBot:
         headers = {'Content-Type': 'application/json', 'Authorization': f'Bearer {os.getenv("ACCESS_TOKEN")}'}
         response = requests.post(url=url, data=data, headers=headers,)
         print(response.text)
+        
