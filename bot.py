@@ -9,13 +9,12 @@ class ChatBot:
     
     def proccess_message(self,sender_phone,message):
         response = get_response(message.lower())
-        match response['type']:
-            case 'text':
-                self.send_message_text(sender_phone,response['response'])
-            case 'url':
-                self.send_message_text(sender_phone,response['response'])
-                if response['media'] != None:
-                    self.send_message_text(sender_phone,response['media'])
+        if response['type'] == 'text':
+            self.send_message_text(sender_phone,response['response'])
+        if response['type'] == 'url':
+            self.send_message_text(sender_phone,response['response'])
+            if response['media'] != None:
+                self.send_message_text(sender_phone,response['media'])
             
     
     def send_message_text(self,sender_phone,message):
