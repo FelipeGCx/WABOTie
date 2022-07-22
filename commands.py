@@ -9,7 +9,7 @@ def get_response(cmd):
 def get_cmd_key(cmd):
     for i in commands:
         for j in i['keywords']:
-            if cmd in j:
+            if cmd.incluide(j):
                 return i['key']
             
 def get_cmds():
