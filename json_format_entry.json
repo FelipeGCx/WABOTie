@@ -17,17 +17,17 @@
                 "profile": {
                   "name": "user name 1"
                 },
-                "wa_id": "573023521590"
+                "wa_id": "1122335588"
               }
             ],
             "messages": [
               {
-                "from": "573023521590",
+                "from": "1122335588",
                 "id": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
                 "timestamp": "1500000000",
                 "type": "text",
                 "text": {
-                  "body": "hola"
+                  "body": "Hello"
                 }
               }
             ]
