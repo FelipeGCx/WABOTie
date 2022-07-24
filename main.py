@@ -23,7 +23,6 @@ def webhook():
     if request.method == 'POST':
         # serialize the request data into a object to access the data easily
         request_data = DefaultMunch.fromDict(request.get_json())
-        # chatbot.send_especial_message(request_data)
         changes = request_data.entry[0].changes[0]
         if (request_data.object == 'whatsapp_business_account') and (changes.field == 'messages'):
             # Get the message
