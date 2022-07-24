@@ -32,9 +32,6 @@ commands = [
             'buenos dias'
             'buenas tardes',
             'buenas noches',
-            'quisiera saber si venden',
-            'me dieron este número',
-            'me dieron este numero'
         ],
         'key': 'CMD_KEY_1'
     },
@@ -54,6 +51,14 @@ commands = [
         ],
         'key': 'CMD_KEY_3'
     },
+    {
+        'keywords':  [
+            'adios',
+            'chao',
+            'hasta luego',
+        ],
+        'key': 'CMD_KEY_4'
+    }
 ]
 
 responses = {
@@ -70,7 +75,7 @@ responses = {
         'trigger':None,
     },
     'CMD_KEY_2':{
-        'response':f'Esta es mi lista de comandos:{get_cmds()}',
+        'response':f'Esta es mi lista 📝 de comandos:{get_cmds()}',
         'type':'text',
         'media':None,
         'trigger':None,
@@ -81,6 +86,12 @@ responses = {
         'media':'https://github.com/FelipeGCx',
         'trigger':None,
     },
+    'CMD_KEY_4':{
+        'response':'Adiós! 👋 fue un gusto ayudarte 🤗',
+        'type':'text',
+        'media':None,
+        'trigger':None,
+    }
 }
     
     
