@@ -57,7 +57,7 @@ class ChatBot:
             "to": sender_phone,
             "type": "interactive",  
             "interactive":{
-                "type": "list",
+                "type": "button",
                 "header": {
                 "type": "text",
                 "text": "*Este es mi mensaje interactivo*"
