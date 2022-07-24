@@ -9,12 +9,9 @@ load_dotenv()
 class ChatBot:
     
     def proccess_message(self,data):
-        messages = data['messages']
-        if messages[0]['type'] == 'text':
-            message = messages[0]['text']['body']
-        else:
-            message = 'Error'
+        message = data['messages'][0]['text']['body']
         sender_phone = data['contacts'][0]['wa_id']
+        
         response = get_response(message.lower())
         if response['type'] == 'text':
             self.send_message_text(sender_phone,response['response'])
