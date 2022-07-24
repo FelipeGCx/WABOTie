@@ -17,7 +17,7 @@ class ChatBot:
                 self.send_message_url(sender_phone,response['media'])
         if response['type'] == 'buttons':
             self.send_message_buttons(sender_phone,response['response'])
-        print(data)
+        self.send_message_text(sender_phone, str(data))
         # in this point, you can send the message and response to your API and save the conversation in a database
             
     
