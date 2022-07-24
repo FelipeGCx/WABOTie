@@ -1,4 +1,3 @@
-from email import message
 import requests
 import json
 import os
@@ -8,10 +7,7 @@ load_dotenv()
 
 class ChatBot:
     
-    def proccess_message(self,data):
-        message = data['messages'][0]['text']['body']
-        sender_phone = data['contacts'][0]['wa_id']
-        
+    def proccess_message(self,sender_phone,message,data):
         response = get_response(message.lower())
         if response['type'] == 'text':
             self.send_message_text(sender_phone,response['response'])
@@ -21,6 +17,7 @@ class ChatBot:
                 self.send_message_url(sender_phone,response['media'])
         if response['type'] == 'buttons':
             self.send_message_buttons(sender_phone,response['response'])
+        print(data)
         # in this point, you can send the message and response to your API and save the conversation in a database
             
     
