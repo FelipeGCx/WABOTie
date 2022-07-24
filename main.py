@@ -22,12 +22,18 @@ def webhook():
             return 'Error', 400
     if request.method == 'POST':
         # serialize the request data into a object to access the data easily
-        request_data = DefaultMunch.fromDict(request.get_json())
-        changes = request_data.entry[0].changes[0]
-        if (request_data.object == 'whatsapp_business_account') and (changes.field == 'messages'):
+        request_data = request.get_json()
+        changes = request_data['entry'][0]['changes'][0]
+        if (request_data['object'] == 'whatsapp_business_account') and (changes['field'] == 'messages'):
             # Get the message
             # Send the data to the chatbot
-            chatbot.proccess_message(changes.value)
+            chatbot.proccess_message(changes[0]['value'])
+        # request_data = DefaultMunch.fromDict(request.get_json())
+        # changes = request_data.entry[0].changes[0]
+        # if (request_data.object == 'whatsapp_business_account') and (changes.field == 'messages'):
+        #     # Get the message
+        #     # Send the data to the chatbot
+        #     chatbot.proccess_message(changes.value)
             return jsonify(request_data),200
             # return 'OK', 200
         else:
