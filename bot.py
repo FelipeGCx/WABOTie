@@ -56,37 +56,37 @@ class ChatBot:
             "messaging_product": "whatsapp",
             "to": sender_phone,
             "type": "interactive",  
-            "interactive":{
-                "type": "button",
-                "header": {
-                "type": "text",
-                "text": "*Este es mi mensaje interactivo*"
-                },
-                "body": {
-                "text": message
-                },
-                "footer": {
-                "text": "elije una opción"
-                },
-                "action": {
-                "buttons": [
-                    {
-                    "type": "reply",
-                    "reply": {
-                        "id": "btn1",
-                        "title": "First Button’s Title" 
-                    }
+            "interactive": {
+                    "type": "button",
+                    "header": {
+                    "type": "text",
+                    "text": "Este es mi mensaje interactivo"
                     },
-                    {
-                    "type": "reply",
-                    "reply": {
-                        "id": "btn2",
-                        "title": "Second Button’s Title" 
+                    "body": {
+                    "text": message
+                    },
+                    "footer": {
+                    "text": "elije una opción"
+                    },
+                    "action": {
+                    "buttons": [
+                        {
+                        "type": "reply",
+                        "reply": {
+                            "id": "btn1",
+                            "title": "First Btn"
+                        }
+                        },
+                        {
+                        "type": "reply",
+                        "reply": {
+                            "id": "btn2",
+                            "title": "Second Btn"
+                        }
+                        }
+                    ]
                     }
-                    }
-                ] 
                 }
-            }
             }
         data = json.dumps(data)
         url = f'https://graph.facebook.com/{os.getenv("API_VERSION")}/{os.getenv("FROM_PHONE_NUMBER_ID")}/messages'
