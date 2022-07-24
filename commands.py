@@ -15,7 +15,7 @@ def get_cmd_key(cmd):
 def get_cmds():
     cmds = []
     for i in commands:
-        string = f"\n ♦ ```{i['keywords'][0]}```"
+        string = f"\n 📌 ```{i['keywords'][0]}```"
         cmds.append(string)
     return ' '.join(cmds)
 
