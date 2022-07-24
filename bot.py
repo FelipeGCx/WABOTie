@@ -15,8 +15,8 @@ class ChatBot:
             self.send_message_text(sender_phone,response['response'])
             if response['media'] != None:
                 self.send_message_url(sender_phone,response['media'])
-        if response['type'] == 'interactive':
-            self.send_message_interactive(sender_phone,response['response'])
+        if response['type'] == 'buttons':
+            self.send_message_buttons(sender_phone,response['response'])
         # in this point, you can send the message and response to your API and save the conversation in a database
             
     
@@ -51,7 +51,7 @@ class ChatBot:
         response = requests.post(url=url, data=data, headers=headers,)
         print(response.text)
         
-    def send_message_interactive(self,sender_phone,message):
+    def send_message_buttons(self,sender_phone,message):
         data = {
             "messaging_product": "whatsapp",
             "to": sender_phone,
@@ -60,31 +60,16 @@ class ChatBot:
                     "type": "button",
                     "header": {
                     "type": "text",
-                    "text": "Este es mi mensaje interactivo"
+                    "text": message['title']
                     },
                     "body": {
-                    "text": message
+                    "text": message['content']
                     },
                     "footer": {
-                    "text": "elije una opción"
+                    "text": message['footer']
                     },
                     "action": {
-                    "buttons": [
-                        {
-                        "type": "reply",
-                        "reply": {
-                            "id": "btn1",
-                            "title": "First Btn"
-                        }
-                        },
-                        {
-                        "type": "reply",
-                        "reply": {
-                            "id": "btn2",
-                            "title": "Second Btn"
-                        }
-                        }
-                    ]
+                    "buttons": message['buttons']
                     }
                 }
             }

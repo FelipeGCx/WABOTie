@@ -93,8 +93,28 @@ responses = {
         'trigger':None,
     },
     'CMD_KEY_4':{
-        'response':'Si quieres interactuar conmigo, pon *hola*',
-        'type':'interactive',
+        'response': {
+            'title':'ELIGE UN SERVICIO',
+            'content':'🤖 Elige una de las siguientes opciones:',
+            'footer':'elige solo una opción',
+            'buttons':[
+               {
+                "type": "reply",
+                "reply": {
+                    "id": "btn1",
+                    "title": "Servicio 1",
+                    }
+                },
+               {
+                "type": "reply",
+                "reply": {
+                    "id": "btn1",
+                    "title": "Servicio 2",
+                    }
+                },
+            ],
+        },
+        'type':'buttons',
         'media':None,
         'trigger':None,
     },
