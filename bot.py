@@ -92,5 +92,5 @@ class ChatBot:
         url = f'https://graph.facebook.com/{os.getenv("API_VERSION")}/{os.getenv("FROM_PHONE_NUMBER_ID")}/messages'
         headers = {'Content-Type': 'application/json', 'Authorization': f'Bearer {os.getenv("ACCESS_TOKEN")}'}
         response = requests.post(url=url, data=data, headers=headers,)
-        self.send_message_text(response.text)
+        print(response.text)
         
