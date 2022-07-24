@@ -1,3 +1,4 @@
+from email import message
 import requests
 import json
 import os
@@ -7,7 +8,13 @@ load_dotenv()
 
 class ChatBot:
     
-    def proccess_message(self,sender_phone,message,data):
+    def proccess_message(self,data):
+        messages = data['messages']
+        if messages[0]['type'] == 'text':
+            message = messages[0]['text']['body']
+        else:
+            message = 'Error'
+        sender_phone = data['contacts'][0]['wa_id']
         response = get_response(message.lower())
         if response['type'] == 'text':
             self.send_message_text(sender_phone,response['response'])

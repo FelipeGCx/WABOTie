@@ -26,11 +26,8 @@ def webhook():
         changes = request_data.entry[0].changes[0]
         if (request_data.object == 'whatsapp_business_account') and (changes.field == 'messages'):
             # Get the message
-            message = changes.value.messages[0].text.body
-            sender_phone = changes.value.contacts[0].wa_id
-            additional_data = changes.value
-            # Send the message to the chatbot
-            chatbot.proccess_message(sender_phone,message,additional_data)
+            # Send the data to the chatbot
+            chatbot.proccess_message(changes.value)
             return jsonify(request_data),200
             # return 'OK', 200
         else:
