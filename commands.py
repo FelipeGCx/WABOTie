@@ -108,7 +108,7 @@ responses = {
                {
                 "type": "reply",
                 "reply": {
-                    "id": "btn1",
+                    "id": "btn2",
                     "title": "Servicio 2",
                     }
                 },
