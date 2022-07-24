@@ -15,7 +15,7 @@ def get_cmd_key(cmd):
 def get_cmds():
     cmds = []
     for i in commands:
-        string = f"\n ⚫ ```{i['keywords'][0]}```"
+        string = f"\n ♦ ```{i['keywords'][0]}```"
         cmds.append(string)
     return ' '.join(cmds)
 
@@ -52,12 +52,18 @@ commands = [
         'key': 'CMD_KEY_3'
     },
     {
+      'keywords':  [
+          'interactivo',
+      ],
+      'key': 'CMD_KEY_4'
+    },
+    {
         'keywords':  [
             'adios',
             'chao',
             'hasta luego',
         ],
-        'key': 'CMD_KEY_4'
+        'key': 'CMD_KEY_5'
     }
 ]
 
@@ -69,7 +75,7 @@ responses = {
         'trigger':None
     },
     'CMD_KEY_1':{
-        'response':'Hola! soy WABOTie un CHATBOT de Whatsapp 🤖 \nlo primero que necesitas saber es que estoy en desarrollo, por lo tanto no puedo responderte mucho aún. \nPero si quieres saber que puedo hacer, pon *comados*',
+        'response':'Hola! soy WABOTie un CHATBOT 🤖 de Whatsapp\nlo primero que necesitas saber es que estoy en desarrollo, por lo tanto no puedo responderte mucho aún. Pero si quieres saber que puedo hacer, pon *comados*',
         'type':'text',
         'media':None,
         'trigger':None,
@@ -87,6 +93,12 @@ responses = {
         'trigger':None,
     },
     'CMD_KEY_4':{
+        'response':'Si quieres interactuar conmigo, pon *hola*',
+        'type':'interactive',
+        'media':None,
+        'trigger':None,
+    },
+    'CMD_KEY_5':{
         'response':'Adiós! 👋 fue un gusto ayudarte 🤗',
         'type':'text',
         'media':None,

@@ -28,8 +28,9 @@ def webhook():
             # Get the message
             message = changes.value.messages[0].text.body
             sender_phone = changes.value.contacts[0].wa_id
+            additional_data = changes.value
             # Send the message to the chatbot
-            chatbot.proccess_message(sender_phone,message)
+            chatbot.proccess_message(sender_phone,message,additional_data)
             return jsonify(request_data),200
             # return 'OK', 200
         else:
