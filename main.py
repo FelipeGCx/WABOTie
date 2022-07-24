@@ -26,6 +26,7 @@ def webhook():
         changes = request_data['entry'][0]['changes'][0]
         if (request_data['object'] == 'whatsapp_business_account') and (changes['field'] == 'messages'):
             # Get the message
+            print(changes[0]['value'])
             # Send the data to the chatbot
             chatbot.proccess_message(changes[0]['value'])
         # request_data = DefaultMunch.fromDict(request.get_json())
