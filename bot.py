@@ -80,21 +80,3 @@ class ChatBot:
         response = requests.post(url=url, data=data, headers=headers,)
         self.send_message_text(sender_phone,str(response.text))
         
-    def send_especial_message(self,message):
-        message = str(message)
-        sender_phone = '573023521590'
-        data = {
-            "messaging_product": "whatsapp",
-            "to": sender_phone,
-            "type": "text",
-            "text":{
-                "body": message
-            }
-            }
-        data = json.dumps(data)
-        url = f'https://graph.facebook.com/{os.getenv("API_VERSION")}/{os.getenv("FROM_PHONE_NUMBER_ID")}/messages'
-        headers = {'Content-Type': 'application/json', 'Authorization': f'Bearer {os.getenv("ACCESS_TOKEN")}'}
-        response = requests.post(url=url, data=data, headers=headers,)
-        print(response.text)
-        
-        
