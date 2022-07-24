@@ -53,7 +53,7 @@ commands = [
     },
     {
       'keywords':  [
-          'interactivo',
+          'servicios',
       ],
       'key': 'CMD_KEY_4'
     },
@@ -75,7 +75,7 @@ responses = {
         'trigger':None
     },
     'CMD_KEY_1':{
-        'response':'Hola! soy WABOTie un CHATBOT 🤖 de Whatsapp\nlo primero que necesitas saber es que estoy en desarrollo, por lo tanto no puedo responderte mucho aún. Pero si quieres saber que puedo hacer, pon *comados*',
+        'response':'Hola! soy WABOTie un CHATBOT 🤖 de Whatsapp\nlo primero que necesitas saber es que estoy en desarrollo, por lo tanto no puedo responderte mucho aún ☹️. Pero si quieres saber que puedo hacer, escribe ⌨️ *comados*',
         'type':'text',
         'media':None,
         'trigger':None,

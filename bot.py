@@ -52,7 +52,6 @@ class ChatBot:
         print(response.text)
         
     def send_message_buttons(self,sender_phone,message):
-        buttons = [btn for btn in message['buttons']]
         data = {
             "messaging_product": "whatsapp",
             "to": sender_phone,
@@ -70,7 +69,7 @@ class ChatBot:
                     "text": message['footer']
                     },
                     "action": {
-                    "buttons": buttons
+                    "buttons": message['buttons']
                     }
                 }
             }
