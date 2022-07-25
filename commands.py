@@ -80,11 +80,23 @@ commands = [
             'document',
         ],
         'key': 'CMD_KEY_7'
-        },
+    },
+    {
+        'keywords':  [
+            'audio',
+        ],
+        'key': 'CMD_KEY_8'
+    },
+    {
+        'keywords':  [
+            'video',
+        ],
+        'key': 'CMD_KEY_9'
+    },
     {
         'keywords':  [
             'adios',
-            'adíos',
+            'adiós',
             'chao',
             'hasta luego',
             'bye',
@@ -162,6 +174,18 @@ responses = {
         'media':'https://sigloxxieditores.com.ar/wp-content/uploads/2021/12/reimpr.-Galeano.-Los-hijos-de-los-días-baja.pdf',
         'title': 'Los hijos de los días',
         'trigger':None,
+    },
+    'CMD_KEY_8':{
+        'response':None,
+        'type':'audio',
+        'media':'',
+        'trigger':None,    
+    },
+    'CMD_KEY_9':{
+        'response':None,
+        'type':'video',
+        'media':'',
+        'trigger':None,    
     },
     'CMD_KEY_100':{
         'response':'Adiós! 👋 fue un gusto ayudarte 🤗',

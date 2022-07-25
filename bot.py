@@ -1,3 +1,5 @@
+from dataclasses import dataclass
+from urllib import response
 import requests
 import json
 import os
@@ -14,6 +16,7 @@ class ChatBot:
     
     def proccess_message(self,sender_phone,message,data):
         response = get_response(message.lower())
+        self.mark_as_read(data['messages'][0]['id'])
         # to type text
         if response['type'] == 'text':
             self.send_message_text(sender_phone,response['response'])
@@ -130,6 +133,20 @@ class ChatBot:
         # here you can send the content of response.text to your API and track logs
         print(response.text)
         
+    def send_message_video(self,sender_phone,media):
+        data = {
+            "messaging_product": "whatsapp",
+            "to": sender_phone,
+            "type": "video",
+            "video":{
+                "link": media
+            }
+            }
+        data = json.dumps(data)
+        response = requests.post(url=URL,headers=HEADERS,data=data)
+        # here you can send the content of response.text to your API and track logs
+        print(response.text)
+        
     def send_message_document(self,sender_phone,media,title):
         data = {
             "messaging_product": "whatsapp",
@@ -173,23 +190,10 @@ class ChatBot:
         # here you can send the content of response.text to your API and track logs
         print(response.text)
         
-    def send_message_hsm(self,sender_phone,media):
+    def mark_as_read(self,id):
         data = {
-            "messaging_product": "whatsapp",
-            "to": sender_phone,
-            "type": "image",
-            "image":{
-                "link": media
-            }
-            }
+            "status": "read",
+        }
         data = json.dumps(data)
-        response = requests.post(url=URL,headers=HEADERS,data=data)
-        # here you can send the content of response.text to your API and track logs
+        response = requests.put(url=f'{URL}/{id}',headers=HEADERS,data=data)
         print(response.text)
-
-    # upload the media to the server
-    def upload_media(self,content_type,media):
-        # the url to upload the media
-        url = f'https://graph.facebook.com/{os.getenv("API_VERSION")}/{os.getenv("FROM_PHONE_NUMBER_ID")}/v1/media'
-        headers = {'Content-Type': content_type, 'Authorization': f'Bearer {os.getenv("ACCESS_TOKEN")}'}
-        response = requests.post(url=url, headers=headers, data=media)
