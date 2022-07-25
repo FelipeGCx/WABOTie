@@ -196,7 +196,7 @@ class ChatBot:
         }
         data = json.dumps(data)
         response = requests.put(url=f'{URL}/{id}',headers=HEADERS,data=data)
-        self.send_message_text('573023521590',response.text)
+        print(response.text)
         
     def proccess_response_btn(self,data):
-        self.send_message_text('573023521590',str(data))
+        pass
