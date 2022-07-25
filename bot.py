@@ -31,10 +31,13 @@ class ChatBot:
             self.send_message_buttons(sender_phone,response['response'])
         # to type text with image
         if response['type'] == 'text/image':
-            self.send_message_image(sender_phone,response['media'])
+            self.send_message_text(sender_phone,response['response'])
+            if response['media'] != None:
+                self.send_message_image(sender_phone,response['media'])
         # to type image in url
         if response['type'] == 'image':
-            self.send_message_image(sender_phone,response['media'])
+            if response['media'] != None:
+                self.send_message_image(sender_phone,response['media'])
         # in this point, you can send the message and response to your API and save the conversation in a database
             
     def send_message_text(self,sender_phone,message):
