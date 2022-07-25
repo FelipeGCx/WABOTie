@@ -34,5 +34,5 @@ pip install -r requirements.txt
 python3 main.py
 ```
 
-** Note **
-- open the bot.py file to make custom logic and commands
+**Note**
+- open the bot.py file to do the logic of the responses, and commads.py to add the commands and responses.

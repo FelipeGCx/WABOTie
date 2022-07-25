@@ -32,15 +32,16 @@ commands = [
             'buenos dias'
             'buenas tardes',
             'buenas noches',
+            'hello'
         ],
         'key': 'CMD_KEY_1'
     },
     {
         'keywords':  [
             'comandos',
-            'commands',
-            'cmds',
             'comando',
+            'cmds',
+            'commands',
         ],
         'key': 'CMD_KEY_2'
     },
@@ -54,6 +55,7 @@ commands = [
     {
       'keywords':  [
           'servicios',
+          'services',
       ],
       'key': 'CMD_KEY_4'
     },
@@ -62,6 +64,7 @@ commands = [
             'adios',
             'chao',
             'hasta luego',
+            'bye',
         ],
         'key': 'CMD_KEY_5'
     }
