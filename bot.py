@@ -16,7 +16,7 @@ class ChatBot:
     
     def proccess_message(self,sender_phone,message,data):
         response = get_response(message.lower())
-        self.mark_as_read(data['messages'][0]['id'])
+        # self.mark_as_read(data['messages'][0]['id'])
         # to type text
         if response['type'] == 'text':
             self.send_message_text(sender_phone,response['response'])
