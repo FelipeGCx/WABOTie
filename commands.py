@@ -70,7 +70,21 @@ commands = [
     },
     {
         'keywords':  [
+            'sticker',
+        ],
+        'key': 'CMD_KEY_6'
+    },
+    {
+        'keywords':  [
+            'documento',
+            'document',
+        ],
+        'key': 'CMD_KEY_7'
+        },
+    {
+        'keywords':  [
             'adios',
+            'adíos',
             'chao',
             'hasta luego',
             'bye',
@@ -134,6 +148,19 @@ responses = {
         'response':None,
         'type':'image',
         'media':'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNna-6wP9XJRHYzJbgtft0IqHcejRRxcN44XKiBRoTB-ZMBQqb08tP1itkp4ucuUCuyQA&usqp=CAU',
+        'trigger':None,
+    },
+    'CMD_KEY_6':{
+        'response':None,
+        'type':'sticker',
+        'media':'https://i.ibb.co/TkZfGZQ/WS202207231681038355.webp ',
+        'trigger':None,
+    },
+    'CMD_KEY_7':{
+        'response':None,
+        'type':'document',
+        'media':'https://sigloxxieditores.com.ar/wp-content/uploads/2021/12/reimpr.-Galeano.-Los-hijos-de-los-días-baja.pdf',
+        'title': 'Los hijos de los días',
         'trigger':None,
     },
     'CMD_KEY_100':{

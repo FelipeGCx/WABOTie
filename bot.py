@@ -38,6 +38,12 @@ class ChatBot:
         if response['type'] == 'image':
             if response['media'] != None:
                 self.send_message_image(sender_phone,response['media'])
+        if response['type'] == 'sticker':
+            if response['media'] != None:
+                self.send_message_sticker(sender_phone,response['media'])
+        if response['type'] == 'document':
+            if response['media'] != None:
+                self.send_message_document(sender_phone,response['media'],response['title'])
         # in this point, you can send the message and response to your API and save the conversation in a database
             
     def send_message_text(self,sender_phone,message):
@@ -110,16 +116,76 @@ class ChatBot:
         # here you can send the content of response.text to your API and track logs
         print(response.text)
 
-    def send_message_audio(self,sender_phone,message):
-        pass
-    def send_message_document(self,sender_phone,message):
-        pass
-    def send_message_template(self,sender_phone,message):
-        pass
-    def send_message_hsm(self,sender_phone,message):
-        pass
-    def send_message_sticker(self,sender_phone,message):
-        pass
+    def send_message_audio(self,sender_phone,media):
+        data = {
+            "messaging_product": "whatsapp",
+            "to": sender_phone,
+            "type": "audio",
+            "audio":{
+                "link": media
+            }
+            }
+        data = json.dumps(data)
+        response = requests.post(url=URL,headers=HEADERS,data=data)
+        # here you can send the content of response.text to your API and track logs
+        print(response.text)
+        
+    def send_message_document(self,sender_phone,media,title):
+        data = {
+            "messaging_product": "whatsapp",
+            "to": sender_phone,
+            "type": "document",
+            "docume":{
+                "link": media,
+                "filename": title,
+            }
+            }
+        data = json.dumps(data)
+        response = requests.post(url=URL,headers=HEADERS,data=data)
+        # here you can send the content of response.text to your API and track logs
+        print(response.text)
+        
+    def send_message_sticker(self,sender_phone,media):
+        data = {
+            "messaging_product": "whatsapp",
+            "to": sender_phone,
+            "type": "sticker",
+            "sticker":{
+                "link": media
+            }
+            }
+        data = json.dumps(data)
+        response = requests.post(url=URL,headers=HEADERS,data=data)
+        # here you can send the content of response.text to your API and track logs
+        print(response.text)
+        
+    def send_message_template(self,sender_phone,media):
+        data = {
+            "messaging_product": "whatsapp",
+            "to": sender_phone,
+            "type": "image",
+            "image":{
+                "link": media
+            }
+            }
+        data = json.dumps(data)
+        response = requests.post(url=URL,headers=HEADERS,data=data)
+        # here you can send the content of response.text to your API and track logs
+        print(response.text)
+        
+    def send_message_hsm(self,sender_phone,media):
+        data = {
+            "messaging_product": "whatsapp",
+            "to": sender_phone,
+            "type": "image",
+            "image":{
+                "link": media
+            }
+            }
+        data = json.dumps(data)
+        response = requests.post(url=URL,headers=HEADERS,data=data)
+        # here you can send the content of response.text to your API and track logs
+        print(response.text)
 
     # upload the media to the server
     def upload_media(self,content_type,media):
