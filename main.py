@@ -24,7 +24,7 @@ def webhook():
         # serialize the request data into a object to access the data easily
         request_data = DefaultMunch.fromDict(request.get_json())
         changes = request_data.entry[0].changes[0]
-        print('########### THE CHANGES ############',changes)
+        # print('########### THE CHANGES ############',changes)
         if (request_data.object == 'whatsapp_business_account') and (changes.field == 'messages'):
             # Get the message
             message = changes.value.messages[0].text.body
