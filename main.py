@@ -32,8 +32,8 @@ def webhook():
             additional_data = changes.value
             # Send the message to the chatbot
             chatbot.proccess_message(sender_phone,message,additional_data)
-            return jsonify(request_data),200
-            # return 'OK', 200
+            # return jsonify(request_data),200
+            return 'OK', 200
         else:
             return 'Error', 400
 

@@ -1,5 +1,3 @@
-from dataclasses import dataclass
-from urllib import response
 import requests
 import json
 import os
