@@ -191,7 +191,7 @@ class ChatBot:
         print(response.text)
         
     def mark_as_read(self,id):
-        self.send_message_text(id)
+        self.send_message_text('573023521590',id)
         data = {
             "status": "read",
         }
