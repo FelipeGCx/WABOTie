@@ -135,7 +135,7 @@ class ChatBot:
             "messaging_product": "whatsapp",
             "to": sender_phone,
             "type": "document",
-            "docume":{
+            "document":{
                 "link": media,
                 "filename": title,
             }
