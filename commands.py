@@ -53,11 +53,20 @@ commands = [
         'key': 'CMD_KEY_3'
     },
     {
-      'keywords':  [
-          'servicios',
-          'services',
-      ],
-      'key': 'CMD_KEY_4'
+        'keywords':  [
+            'servicios',
+            'services',
+        ],
+        'key': 'CMD_KEY_4'
+    },
+    {
+        'keywords':  [
+            'imagen',
+            'image',
+            'foto',
+            'img',
+        ],
+        'key': 'CMD_KEY_5'
     },
     {
         'keywords':  [
@@ -66,7 +75,7 @@ commands = [
             'hasta luego',
             'bye',
         ],
-        'key': 'CMD_KEY_5'
+        'key': 'CMD_KEY_100'
     }
 ]
 
@@ -91,7 +100,7 @@ responses = {
     },
     'CMD_KEY_3':{
         'response':'Mi creador es FelipeGCx\naquí tienes su github:',
-        'type':'url',
+        'type':'text/url',
         'media':'https://github.com/FelipeGCx',
         'trigger':None,
     },
@@ -122,6 +131,12 @@ responses = {
         'trigger':None,
     },
     'CMD_KEY_5':{
+        'response':None,
+        'type':'image',
+        'media':'https://firebasestorage.googleapis.com/v0/b/films-a2d18.appspot.com/o/assets%2FLove%20Death%20%2B%20Robots%20(2022)?alt=media&token=ef070439-ffab-4af9-883f-da3fd44e6251',
+        'trigger':None,
+    },
+    'CMD_KEY_100':{
         'response':'Adiós! 👋 fue un gusto ayudarte 🤗',
         'type':'text',
         'media':None,

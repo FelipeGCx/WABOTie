@@ -1,4 +1,3 @@
-from urllib import response
 import requests
 import json
 import os
@@ -15,15 +14,27 @@ class ChatBot:
     
     def proccess_message(self,sender_phone,message,data):
         response = get_response(message.lower())
+        # to type text
         if response['type'] == 'text':
             self.send_message_text(sender_phone,response['response'])
-        if response['type'] == 'url':
+        # to type text with url
+        if response['type'] == 'text/url':
             self.send_message_text(sender_phone,response['response'])
             if response['media'] != None:
                 self.send_message_url(sender_phone,response['media'])
+        # to type url, this send only a url message
+        if response['type'] == 'url':
+            if response['media'] != None:
+                self.send_message_url(sender_phone,response['media'])
+        # to type buttons
         if response['type'] == 'buttons':
             self.send_message_buttons(sender_phone,response['response'])
-        self.send_message_text(sender_phone, str(data))
+        # to type text with image
+        if response['type'] == 'text/image':
+            self.send_message_image(sender_phone,response['media'])
+        # to type image in url
+        if response['type'] == 'image':
+            self.send_message_image(sender_phone,response['media'])
         # in this point, you can send the message and response to your API and save the conversation in a database
             
     def send_message_text(self,sender_phone,message):
@@ -82,8 +93,20 @@ class ChatBot:
         # here you can send the content of response.text to your API and track logs
         print(response.text)
         
-    def send_message_image(self,sender_phone,message):
-        pass
+    def send_message_image(self,sender_phone,media):
+        data = {
+            "messaging_product": "whatsapp",
+            "to": sender_phone,
+            "type": "image",
+            "image":{
+                "link": media
+            }
+            }
+        data = json.dumps(data)
+        response = requests.post(url=URL,headers=HEADERS,data=data)
+        # here you can send the content of response.text to your API and track logs
+        print(response.text)
+
     def send_message_audio(self,sender_phone,message):
         pass
     def send_message_document(self,sender_phone,message):
