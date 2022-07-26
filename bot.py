@@ -14,7 +14,6 @@ class ChatBot:
     
     def proccess_message(self,sender_phone,message,data):
         response = get_response(message.lower())
-        self.mark_as_read(data['messages'][0]['id'])
         # to type text
         if response['type'] == 'text':
             self.send_message_text(sender_phone,response['response'])
@@ -193,15 +192,6 @@ class ChatBot:
         data = json.dumps(data)
         response = requests.post(url=URL,headers=HEADERS,data=data)
         # here you can send the content of response.text to your API and track logs
-        print('####THE RESPONSE####',response.text)
-        
-    def mark_as_read(self,id_message):
-        print('####MARK AS READ####' ,id_message)
-        data = {
-            "status": "read",
-        }
-        data = json.dumps(data)
-        response = requests.put(url=f'{URL}/{id_message}',headers=HEADERS,data=data)
         print('####THE RESPONSE####',response.text)
         
     def proccess_message_interactive(self,sender_phone,data):
