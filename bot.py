@@ -58,7 +58,7 @@ class ChatBot:
         data = json.dumps(data)
         response = requests.post(url=URL,headers=HEADERS, data=data)
         # here you can send the content of response.text to your API and track logs
-        print(response.text)
+        print('####THE RESPONSE####',response.text)
         
     def send_message_url(self,sender_phone,message):
         data = {
@@ -73,7 +73,7 @@ class ChatBot:
         data = json.dumps(data)
         response = requests.post(url=URL,headers=HEADERS,data=data)
         # here you can send the content of response.text to your API and track logs
-        print(response.text)
+        print('####THE RESPONSE####',response.text)
         
     def send_message_buttons(self,sender_phone,message):
         data = {
@@ -100,7 +100,7 @@ class ChatBot:
         data = json.dumps(data)
         response = requests.post(url=URL, headers=HEADERS,data=data)
         # here you can send the content of response.text to your API and track logs
-        print(response.text)
+        print('####THE RESPONSE####',response.text)
         
     def send_message_image(self,sender_phone,media):
         data = {
@@ -114,7 +114,7 @@ class ChatBot:
         data = json.dumps(data)
         response = requests.post(url=URL,headers=HEADERS,data=data)
         # here you can send the content of response.text to your API and track logs
-        print(response.text)
+        print('####THE RESPONSE####',response.text)
 
     def send_message_audio(self,sender_phone,media):
         data = {
@@ -128,7 +128,7 @@ class ChatBot:
         data = json.dumps(data)
         response = requests.post(url=URL,headers=HEADERS,data=data)
         # here you can send the content of response.text to your API and track logs
-        print(response.text)
+        print('####THE RESPONSE####',response.text)
         
     def send_message_video(self,sender_phone,media):
         data = {
@@ -142,7 +142,7 @@ class ChatBot:
         data = json.dumps(data)
         response = requests.post(url=URL,headers=HEADERS,data=data)
         # here you can send the content of response.text to your API and track logs
-        print(response.text)
+        print('####THE RESPONSE####',response.text)
         
     def send_message_document(self,sender_phone,media,title):
         data = {
@@ -157,7 +157,7 @@ class ChatBot:
         data = json.dumps(data)
         response = requests.post(url=URL,headers=HEADERS,data=data)
         # here you can send the content of response.text to your API and track logs
-        print(response.text)
+        print('####THE RESPONSE####',response.text)
         
     def send_message_sticker(self,sender_phone,media):
         data = {
@@ -171,7 +171,7 @@ class ChatBot:
         data = json.dumps(data)
         response = requests.post(url=URL,headers=HEADERS,data=data)
         # here you can send the content of response.text to your API and track logs
-        print(response.text)
+        print('####THE RESPONSE####',response.text)
         
     def send_message_template(self,sender_phone,media):
         data = {
@@ -185,13 +185,13 @@ class ChatBot:
         data = json.dumps(data)
         response = requests.post(url=URL,headers=HEADERS,data=data)
         # here you can send the content of response.text to your API and track logs
-        print(response.text)
+        print('####THE RESPONSE####',response.text)
         
-    def mark_as_read(self,id):
-        data = {
-            "status": "read",
-        }
-        data = json.dumps(data)
-        response = requests.put(url=f'{URL}/{id}',headers=HEADERS,data=data)
-        print(response.text)
+    # def mark_as_read(self,id):
+    #     data = {
+    #         "status": "read",
+    #     }
+    #     data = json.dumps(data)
+    #     response = requests.put(url=f'{URL}/{id}',headers=HEADERS,data=data)
+    #     print('####THE RESPONSE####',response.text)
         
