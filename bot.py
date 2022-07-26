@@ -42,6 +42,12 @@ class ChatBot:
         if response['type'] == 'sticker':
             if response['media'] != None:
                 self.send_message_sticker(sender_phone,response['media'])
+        if response['type'] == 'audio':
+            if response['media'] != None:
+                self.send_message_audio(sender_phone,response['media'])
+        if response['type'] == 'video':
+            if response['media'] != None:
+                self.send_message_video(sender_phone,response['media'])
         if response['type'] == 'document':
             if response['media'] != None:
                 self.send_message_document(sender_phone,response['media'],response['title'])
