@@ -22,11 +22,11 @@ def webhook():
     if request.method == 'POST':
         # serialize the request data into a object to access the data easily
         request_data = (request.get_json())
-        print('########### THE CHANGES ############',request.get_json())
         changes = request_data['entry'][0]['changes'][0]
         if (request_data['object'] == 'whatsapp_business_account') and (changes['field'] == 'messages'):
             if not 'statuses' in changes['value']:
                 print('############ No esta en el campo statuses ############')
+                print('########### THE CHANGES ############',request.get_json())
                 sender_phone = changes['value']['contacts'][0]['wa_id']
                 if changes['messages'][0]['type'] == 'text':
                     # Get the message
