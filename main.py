@@ -25,8 +25,8 @@ def webhook():
         request_data = DefaultMunch.fromDict(request.get_json())
         print('########### THE CHANGES ############',request.get_json())
         changes = request_data.entry[0].changes[0]
-        # if 'interactive' in changes.messages[0].keys():
-        #     chatbot.proccess_message_interactive(changes.messages[0].interactive)
+        if changes.messages[0].type == 'interactive':
+            chatbot.proccess_message_interactive(changes.messages[0].interactive)
         if (request_data.object == 'whatsapp_business_account') and (changes.field == 'messages'):
             # Get the message
             message = changes.value.messages[0].text.body
@@ -41,3 +41,6 @@ def webhook():
 
 if __name__ == "__main__":
      app.run(debug=False, port=os.getenv("PORT", default=5000))
+     
+     
+########### THE CHANGES ############ 

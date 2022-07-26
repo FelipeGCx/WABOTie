@@ -196,4 +196,4 @@ class ChatBot:
     #     print('####THE RESPONSE####',response.text)
         
     def proccess_message_interactive(self,data):
-        pass
+        print('####THE INTERACTIVE DATA####',data)
