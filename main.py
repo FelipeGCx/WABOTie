@@ -22,18 +22,20 @@ def webhook():
             return 'Error', 400
     if request.method == 'POST':
         # serialize the request data into a object to access the data easily
-        request_data = DefaultMunch.fromDict(request.get_json())
+        request_data = (request.get_json())
         print('########### THE CHANGES ############',request.get_json())
-        changes = request_data.entry[0].changes[0]
-        if changes.messages[0].type == 'interactive':
-            chatbot.proccess_message_interactive(changes.messages[0].interactive)
-        if (request_data.object == 'whatsapp_business_account') and (changes.field == 'messages'):
-            # Get the message
-            message = changes.value.messages[0].text.body
-            sender_phone = changes.value.contacts[0].wa_id
-            additional_data = changes.value
-            # Send the message to the chatbot
-            chatbot.proccess_message(sender_phone,message,additional_data)
+        changes = request_data['entry'][0]['changes'][0]
+        if (request_data['object'] == 'whatsapp_business_account') and (changes['field'] == 'messages'):
+            sender_phone = changes['value']['contacts'][0]['wa_id']
+            if changes.messages[0].type == 'text':
+                # Get the message
+                message = changes['value']['messages'][0]['text']['body']
+                additional_data = changes['value']
+                # Send the message to the chatbot
+                chatbot.proccess_message(sender_phone,message,additional_data)
+            # catch the response from the message of type button
+            if changes.messages[0].type == 'interactive':
+                chatbot.proccess_message_interactive(changes['value']['messages'][0]['interactive'])
             # return jsonify(request_data),200
             return 'OK', 200
         else:
