@@ -28,14 +28,14 @@ def webhook():
                 print('############ No esta en el campo statuses ############')
                 print('########### THE CHANGES ############',request.get_json())
                 sender_phone = changes['value']['contacts'][0]['wa_id']
-                if changes['messages'][0]['type'] == 'text':
+                if changes['value']['messages'][0]['type'] == 'text':
                     # Get the message
                     message = changes['value']['messages'][0]['text']['body']
                     additional_data = changes['value']
                     # Send the message to the chatbot
                     chatbot.proccess_message(sender_phone,message,additional_data)
                 # catch the response from the message of type button
-                if changes['messages'][0]['type'] == 'interactive':
+                if changes['value']['messages'][0]['type'] == 'interactive':
                     reply = changes['value']['messages'][0]['interactive']
                     chatbot.proccess_message_interactive(sender_phone,reply)
                 # return jsonify(request_data),200
