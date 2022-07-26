@@ -1,3 +1,6 @@
+import code
+
+
 def get_response(cmd):
     cmd_key = get_cmd_key(cmd)
     if cmd_key in responses:
@@ -95,6 +98,12 @@ commands = [
     },
     {
         'keywords':  [
+            'template',
+        ],
+        'key': 'CMD_KEY_10'    
+    },
+    {
+        'keywords':  [
             'adios',
             'adiós',
             'chao',
@@ -165,7 +174,7 @@ responses = {
     'CMD_KEY_6':{
         'response':None,
         'type':'sticker',
-        'media':'https://i.ibb.co/TkZfGZQ/WS202207231681038355.webp ',
+        'media':'https://i.ibb.co/TkZfGZQ/WS202207231681038355.webp',
         'trigger':None,
     },
     'CMD_KEY_7':{
@@ -178,13 +187,25 @@ responses = {
     'CMD_KEY_8':{
         'response':None,
         'type':'audio',
-        'media':'',
+        'media':'https://mp3teca.app/-/aac/96/100966_96.m4a',
         'trigger':None,    
     },
     'CMD_KEY_9':{
         'response':None,
         'type':'video',
-        'media':'',
+        'media':'https://media.istockphoto.com/videos/technologic-earth-4k-video-id523063952',
+        'trigger':None,    
+    },
+    'CMD_KEY_10':{
+        'response':None,
+        'type':'template',
+        'media':None,
+        'template':{
+            "name": "hello_world", 
+            "language":{
+                "code":"en_US",
+            } 
+        },
         'trigger':None,    
     },
     'CMD_KEY_100':{

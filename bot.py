@@ -14,6 +14,7 @@ class ChatBot:
     
     def proccess_message(self,sender_phone,message,data):
         response = get_response(message.lower())
+        self.mark_as_read(data['messages'][0]['id'])
         # to type text
         if response['type'] == 'text':
             self.send_message_text(sender_phone,response['response'])
@@ -44,6 +45,9 @@ class ChatBot:
         if response['type'] == 'document':
             if response['media'] != None:
                 self.send_message_document(sender_phone,response['media'],response['title'])
+        if response['type'] == 'template':
+            if response['template'] != None:
+                self.send_message_template(sender_phone,response['template'])
         # in this point, you can send the message and response to your API and save the conversation in a database
             
     def send_message_text(self,sender_phone,message):
@@ -173,27 +177,26 @@ class ChatBot:
         # here you can send the content of response.text to your API and track logs
         print('####THE RESPONSE####',response.text)
         
-    def send_message_template(self,sender_phone,media):
+    def send_message_template(self,sender_phone,template):
         data = {
             "messaging_product": "whatsapp",
             "to": sender_phone,
-            "type": "image",
-            "image":{
-                "link": media
-            }
+            "type": "template",
+            "template":template
             }
         data = json.dumps(data)
         response = requests.post(url=URL,headers=HEADERS,data=data)
         # here you can send the content of response.text to your API and track logs
         print('####THE RESPONSE####',response.text)
         
-    # def mark_as_read(self,id):
-    #     data = {
-    #         "status": "read",
-    #     }
-    #     data = json.dumps(data)
-    #     response = requests.put(url=f'{URL}/{id}',headers=HEADERS,data=data)
-    #     print('####THE RESPONSE####',response.text)
+    def mark_as_read(self,id_message):
+        print('####MARK AS READ####' ,id_message)
+        data = {
+            "status": "read",
+        }
+        data = json.dumps(data)
+        response = requests.put(url=f'{URL}/{id_message}',headers=HEADERS,data=data)
+        print('####THE RESPONSE####',response.text)
         
     def proccess_message_interactive(self,sender_phone,data):
         msg = f'Elegiste la opción: *{data["button_reply"]["title"]}* con ID: {data["button_reply"]["id"]}'
