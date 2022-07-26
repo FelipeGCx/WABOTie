@@ -35,7 +35,8 @@ def webhook():
                 chatbot.proccess_message(sender_phone,message,additional_data)
             # catch the response from the message of type button
             if changes.messages[0].type == 'interactive':
-                chatbot.proccess_message_interactive(changes['value']['messages'][0]['interactive'])
+                reply = changes['value']['messages'][0]['interactive']
+                chatbot.proccess_message_interactive(sender_phone,reply)
             # return jsonify(request_data),200
             return 'OK', 200
         else:

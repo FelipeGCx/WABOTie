@@ -195,5 +195,7 @@ class ChatBot:
     #     response = requests.put(url=f'{URL}/{id}',headers=HEADERS,data=data)
     #     print('####THE RESPONSE####',response.text)
         
-    def proccess_message_interactive(self,data):
+    def proccess_message_interactive(self,sender_phone,data):
+        msg = f'Elegiste la opción: *{data["title"]}* con ID: {data["button_reply"]["id"]}'
+        self.send_message_text(sender_phone,)
         print('####THE INTERACTIVE DATA####',data)
