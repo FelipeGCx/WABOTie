@@ -26,6 +26,7 @@ def webhook():
         changes = request_data['entry'][0]['changes'][0]
         if (request_data['object'] == 'whatsapp_business_account') and (changes['field'] == 'messages'):
             if not 'statuses' in changes['value']:
+                print('############ No esta en el campo statuses ############')
                 sender_phone = changes['value']['contacts'][0]['wa_id']
                 if changes['messages'][0]['type'] == 'text':
                     # Get the message
