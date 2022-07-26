@@ -195,3 +195,5 @@ class ChatBot:
     #     response = requests.put(url=f'{URL}/{id}',headers=HEADERS,data=data)
     #     print('####THE RESPONSE####',response.text)
         
+    def proccess_message_interactive(self,data):
+        pass
